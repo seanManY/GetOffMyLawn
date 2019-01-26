@@ -18,11 +18,14 @@ public class GunScript : MonoBehaviour
 
     public Camera fpsCam;
 
+    public Image[] icon;
+
     int bullets = 6;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("turn on");
+        icon[1].enabled = false;
     }
 
     // Update is called once per frame
@@ -45,8 +48,9 @@ public class GunScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            icon[itemSel].enabled = false;
             itemSel = (itemSel +1) % 2;
+            icon[itemSel].enabled = true;
 
         }
 
