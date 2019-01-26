@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8150351806694016795}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,3 +107,4 @@ MonoBehaviour:
   bullet: {fileID: 714026630575340120, guid: 30382bc251bf04342b5d3f9f00f4a58a, type: 3}
   parent: {fileID: 8150351806694016791}
   trigger: 120
+  health: 100

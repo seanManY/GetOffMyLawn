@@ -19,13 +19,25 @@ public class breakableWall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        Debug.Log(health);
     }
 
     void OnCollisionStay(Collision col)
     {
         if (col.gameObject.tag == "Enemy")
         {
-            health = health - 1;
+            health--;
         }
+    }
+
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth(int t)
+    {
+        health = t;
     }
 }
