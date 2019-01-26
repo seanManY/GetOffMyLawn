@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class basicEnemyMov : MonoBehaviour
 {
-
     public float speed = 1f;
     int health;
     
-
     void Start()
     {
         health = 100;
@@ -28,8 +26,7 @@ public class basicEnemyMov : MonoBehaviour
     {
         if (col.gameObject.tag == "Bullet")
         {
-            health = health-25;
-            Debug.Log(health);
+            health = health - 25;
         }
     }
 }
