@@ -11,24 +11,28 @@ public class GameManager : MonoBehaviour
     public GameObject normEnemy;
     public GameObject slowEnemy;
 
-    public GameObject laneSpawns1;
-    public GameObject laneSpawns2;
-    public GameObject laneSpawns3;
-    public GameObject laneSpawns4;
-    public GameObject laneSpawns5;
-    public GameObject laneSpawns6;
-    public GameObject laneSpawns7;
-    public GameObject laneSpawns8;
-    public GameObject laneSpawns9;
+    public GameObject level;
+    //public GameObject laneSpawns1;
+    //public GameObject laneSpawns2;
+    //public GameObject laneSpawns3;
+    //public GameObject laneSpawns4;
+    //public GameObject laneSpawns5;
+    //public GameObject laneSpawns6;
+    //public GameObject laneSpawns7;
+    //public GameObject laneSpawns8;
+    //public GameObject laneSpawns9;
 
     public int fastEnemyCount = 0;
     public int normEnemyCount = 0;
     public int slowEnemyCount = 0;
     public int spawnRate = 0;
 
-    int count;
+    GameObject[] enemyList;
 
-    GameObject currentSpawn;
+    int spawnCount;
+    int spawnNum;
+
+    Transform currentSpawn;
     GameObject[,] spawnGrid;
 
     //int laneNum;
@@ -36,13 +40,35 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
+        spawnCount = 0;
+        spawnNum = 0;
 
-        currentSpawn = laneSpawns5;
+        currentSpawn = level.transform.GetChild(4);
         //laneNum = 4;
 
         spawnGrid = new GameObject[9, 4];
+        
+        enemyList = new GameObject[fastEnemyCount + normEnemyCount + slowEnemyCount];
+        for (int i = 0; i < fastEnemyCount; i++)
+        {
+            enemyList[i] = fastEnemy;
+        }
+        for (int i = fastEnemyCount; i < fastEnemyCount + normEnemyCount; i++)
+        {
+            enemyList[i] = normEnemy;
+        }
+        for (int i = fastEnemyCount + normEnemyCount; i < fastEnemyCount + normEnemyCount + slowEnemyCount; i++)
+        {
+            enemyList[i] = slowEnemy;
+        }
 
+        for (int i = 0; i < enemyList.Length; i++)
+        {
+            int rand = Random.Range(0, enemyList.Length);
+            GameObject temp = enemyList[rand];
+            enemyList[rand] = enemyList[i];
+            enemyList[i] = temp;
+        }
         //for (int j = 0; j < 8; j++)
         //{
         //    for (int i = 0; i < 3; i++)
@@ -55,47 +81,48 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        count++;
-        if (count >= spawnRate)
+        spawnCount++;
+        if (spawnCount >= spawnRate*10 && spawnNum < enemyList.Length)
         {
-            GameObject enemyType = normEnemy;
-            Transform enemySpawn = laneSpawns5.transform.GetChild(4);
-            Instantiate(normEnemy, enemySpawn);
-            count = 0;
+            Instantiate(enemyList[spawnNum], level.transform.GetChild(Random.Range(0,8)).GetChild(4));
+            spawnNum++;
+            spawnCount = 0;
         }
     }
 
     public void BuildDefense(int padNum, int buildType)
     {
-        switch(padNum)
-        {
-            case 0: currentSpawn = laneSpawns1;
-                break;
-            case 1:
-                currentSpawn = laneSpawns2;
-                break;
-            case 2:
-                currentSpawn = laneSpawns3;
-                break;
-            case 3:
-                currentSpawn = laneSpawns4;
-                break;
-            case 4:
-                currentSpawn = laneSpawns5;
-                break;
-            case 5:
-                currentSpawn = laneSpawns6;
-                break;
-            case 6:
-                currentSpawn = laneSpawns7;
-                break;
-            case 7:
-                currentSpawn = laneSpawns8;
-                break;
-            case 8:
-                currentSpawn = laneSpawns9;
-                break;
-        }
+        currentSpawn = level.transform.GetChild(padNum);
+
+        //switch(padNum)
+        //{
+        //    case 0: currentSpawn = laneSpawns1;
+        //        break;
+        //    case 1:
+        //        currentSpawn = laneSpawns2;
+        //        break;
+        //    case 2:
+        //        currentSpawn = laneSpawns3;
+        //        break;
+        //    case 3:
+        //        currentSpawn = laneSpawns4;
+        //        break;
+        //    case 4:
+        //        currentSpawn = laneSpawns5;
+        //        break;
+        //    case 5:
+        //        currentSpawn = laneSpawns6;
+        //        break;
+        //    case 6:
+        //        currentSpawn = laneSpawns7;
+        //        break;
+        //    case 7:
+        //        currentSpawn = laneSpawns8;
+        //        break;
+        //    case 8:
+        //        currentSpawn = laneSpawns9;
+        //        break;
+        //}
 
         if (spawnGrid[padNum, 3] != null)
         {
@@ -105,13 +132,13 @@ public class GameManager : MonoBehaviour
         {
             if (spawnGrid[padNum, 2].tag == "Turret")
             {
-                spawnGrid[padNum, 3] = Instantiate(spawnGrid[padNum, 2], currentSpawn.transform.GetChild(3));
+                spawnGrid[padNum, 3] = Instantiate(spawnGrid[padNum, 2], currentSpawn.GetChild(3));
                 spawnGrid[padNum, 3].GetComponent<fireBullet>().SetHealth(spawnGrid[padNum, 2].GetComponent<fireBullet>().GetHealth());
                 Destroy(spawnGrid[padNum, 2]);
             }
             if (spawnGrid[padNum, 2].tag == "Wall")
             {
-                spawnGrid[padNum, 3] = Instantiate(spawnGrid[padNum, 2], currentSpawn.transform.GetChild(3));
+                spawnGrid[padNum, 3] = Instantiate(spawnGrid[padNum, 2], currentSpawn.GetChild(3));
                 spawnGrid[padNum, 3].GetComponent<breakableWall>().SetHealth(spawnGrid[padNum, 2].GetComponent<breakableWall>().GetHealth());
                 Destroy(spawnGrid[padNum, 2]);
             }
@@ -120,13 +147,13 @@ public class GameManager : MonoBehaviour
         {
             if (spawnGrid[padNum, 1].tag == "Turret")
             {
-                spawnGrid[padNum, 2] = Instantiate(spawnGrid[padNum, 1], currentSpawn.transform.GetChild(2));
+                spawnGrid[padNum, 2] = Instantiate(spawnGrid[padNum, 1], currentSpawn.GetChild(2));
                 spawnGrid[padNum, 2].GetComponent<fireBullet>().SetHealth(spawnGrid[padNum, 1].GetComponent<fireBullet>().GetHealth());
                 Destroy(spawnGrid[padNum, 1]);
             }
             if (spawnGrid[padNum, 1].tag == "Wall")
             {
-                spawnGrid[padNum, 2] = Instantiate(spawnGrid[padNum, 1], currentSpawn.transform.GetChild(2));
+                spawnGrid[padNum, 2] = Instantiate(spawnGrid[padNum, 1], currentSpawn.GetChild(2));
                 spawnGrid[padNum, 2].GetComponent<breakableWall>().SetHealth(spawnGrid[padNum, 1].GetComponent<breakableWall>().GetHealth());
                 Destroy(spawnGrid[padNum, 1]);
             }
@@ -135,13 +162,13 @@ public class GameManager : MonoBehaviour
         {
             if (spawnGrid[padNum, 0].tag == "Turret")
             {
-                spawnGrid[padNum, 1] = Instantiate(spawnGrid[padNum, 0], currentSpawn.transform.GetChild(1));
+                spawnGrid[padNum, 1] = Instantiate(spawnGrid[padNum, 0], currentSpawn.GetChild(1));
                 spawnGrid[padNum, 1].GetComponent<fireBullet>().SetHealth(spawnGrid[padNum, 0].GetComponent<fireBullet>().GetHealth());
                 Destroy(spawnGrid[padNum, 0]);
             }
             if (spawnGrid[padNum, 0].tag == "Wall")
             {
-                spawnGrid[padNum, 1] = Instantiate(spawnGrid[padNum, 0], currentSpawn.transform.GetChild(1));
+                spawnGrid[padNum, 1] = Instantiate(spawnGrid[padNum, 0], currentSpawn.GetChild(1));
                 spawnGrid[padNum, 1].GetComponent<breakableWall>().SetHealth(spawnGrid[padNum, 0].GetComponent<breakableWall>().GetHealth());
                 Destroy(spawnGrid[padNum, 0]);
             }
@@ -150,10 +177,10 @@ public class GameManager : MonoBehaviour
         switch (buildType)
         {
             case 0:
-                spawnGrid[padNum, 0] = Instantiate(turret, currentSpawn.transform.GetChild(0));
+                spawnGrid[padNum, 0] = Instantiate(turret, currentSpawn.GetChild(0));
                 break;
             case 1:
-                spawnGrid[padNum, 0] = Instantiate(wall, currentSpawn.transform.GetChild(0));
+                spawnGrid[padNum, 0] = Instantiate(wall, currentSpawn.GetChild(0));
                 break;
         }
     }
