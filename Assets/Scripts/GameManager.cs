@@ -266,6 +266,36 @@ public class GameManager : MonoBehaviour
 
     public void BuildDefense(int padNum, int buildType)
     {
+        switch(padNum)
+        {
+            case 0: currentSpawn = laneSpawns1;
+                break;
+            case 1:
+                currentSpawn = laneSpawns2;
+                break;
+            case 2:
+                currentSpawn = laneSpawns3;
+                break;
+            case 3:
+                currentSpawn = laneSpawns4;
+                break;
+            case 4:
+                currentSpawn = laneSpawns5;
+                break;
+            case 5:
+                currentSpawn = laneSpawns6;
+                break;
+            case 6:
+                currentSpawn = laneSpawns7;
+                break;
+            case 7:
+                currentSpawn = laneSpawns8;
+                break;
+            case 8:
+                currentSpawn = laneSpawns9;
+                break;
+        }
+
         if (spawnGrid[padNum, 3] != null)
         {
             Destroy(spawnGrid[padNum, 3]);
@@ -315,13 +345,15 @@ public class GameManager : MonoBehaviour
                 Destroy(spawnGrid[padNum, 0]);
             }
         }
-        if (buildType == 0)
+
+        switch (buildType)
         {
-            spawnGrid[padNum, 0] = Instantiate(turret, currentSpawn.transform.GetChild(0));
-        }
-        if (buildType == 1)
-        {
-            spawnGrid[padNum, 0] = Instantiate(wall, currentSpawn.transform.GetChild(0));
+            case 0:
+                spawnGrid[padNum, 0] = Instantiate(turret, currentSpawn.transform.GetChild(0));
+                break;
+            case 1:
+                spawnGrid[padNum, 0] = Instantiate(wall, currentSpawn.transform.GetChild(0));
+                break;
         }
     }
 }
