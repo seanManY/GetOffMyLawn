@@ -31,12 +31,12 @@ public class breakableWall : MonoBehaviour
         }
     }
 
-    public int getHealth()
+    public int GetHealth()
     {
         return health;
     }
 
-    public void setHealth(int t)
+    public void SetHealth(int t)
     {
         health = t;
     }

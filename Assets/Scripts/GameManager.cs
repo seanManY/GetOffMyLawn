@@ -20,10 +20,9 @@ public class GameManager : MonoBehaviour
     public GameObject laneSpawns9;
 
     GameObject currentSpawn;
+    GameObject[,] spawnGrid;
 
     int laneNum;
-
-    GameObject[,] spawnGrid;
 
     // Start is called before the first frame update
     void Start()
@@ -102,13 +101,13 @@ public class GameManager : MonoBehaviour
                 if (spawnGrid[laneNum, 2].tag == "Turret")
                 {
                     spawnGrid[laneNum, 3] = Instantiate(spawnGrid[laneNum, 2], currentSpawn.transform.GetChild(3));
-                    spawnGrid[laneNum, 3].GetComponent<fireBullet>().setHealth(spawnGrid[laneNum, 2].GetComponent<fireBullet>().getHealth());
+                    spawnGrid[laneNum, 3].GetComponent<fireBullet>().SetHealth(spawnGrid[laneNum, 2].GetComponent<fireBullet>().GetHealth());
                     Destroy(spawnGrid[laneNum, 2]);
                 }
                 if (spawnGrid[laneNum, 2].tag == "Wall")
                 {
                     spawnGrid[laneNum, 3] = Instantiate(spawnGrid[laneNum, 2], currentSpawn.transform.GetChild(3));
-                    spawnGrid[laneNum, 3].GetComponent<breakableWall>().setHealth(spawnGrid[laneNum, 2].GetComponent<breakableWall>().getHealth());
+                    spawnGrid[laneNum, 3].GetComponent<breakableWall>().SetHealth(spawnGrid[laneNum, 2].GetComponent<breakableWall>().GetHealth());
                     Destroy(spawnGrid[laneNum, 2]);
                 }
             }
@@ -117,13 +116,13 @@ public class GameManager : MonoBehaviour
                 if (spawnGrid[laneNum, 1].tag == "Turret")
                 {
                     spawnGrid[laneNum, 2] = Instantiate(spawnGrid[laneNum, 1], currentSpawn.transform.GetChild(2));
-                    spawnGrid[laneNum, 2].GetComponent<fireBullet>().setHealth(spawnGrid[laneNum, 1].GetComponent<fireBullet>().getHealth());
+                    spawnGrid[laneNum, 2].GetComponent<fireBullet>().SetHealth(spawnGrid[laneNum, 1].GetComponent<fireBullet>().GetHealth());
                     Destroy(spawnGrid[laneNum, 1]);
                 }
                 if (spawnGrid[laneNum, 1].tag == "Wall")
                 {
                     spawnGrid[laneNum, 2] = Instantiate(spawnGrid[laneNum, 1], currentSpawn.transform.GetChild(2));
-                    spawnGrid[laneNum, 2].GetComponent<breakableWall>().setHealth(spawnGrid[laneNum, 1].GetComponent<breakableWall>().getHealth());
+                    spawnGrid[laneNum, 2].GetComponent<breakableWall>().SetHealth(spawnGrid[laneNum, 1].GetComponent<breakableWall>().GetHealth());
                     Destroy(spawnGrid[laneNum, 1]);
                 }
             }
@@ -132,13 +131,13 @@ public class GameManager : MonoBehaviour
                 if (spawnGrid[laneNum, 0].tag == "Turret")
                 {
                     spawnGrid[laneNum, 1] = Instantiate(spawnGrid[laneNum, 0], currentSpawn.transform.GetChild(1));
-                    spawnGrid[laneNum, 1].GetComponent<fireBullet>().setHealth(spawnGrid[laneNum, 0].GetComponent<fireBullet>().getHealth());
+                    spawnGrid[laneNum, 1].GetComponent<fireBullet>().SetHealth(spawnGrid[laneNum, 0].GetComponent<fireBullet>().GetHealth());
                     Destroy(spawnGrid[laneNum, 0]);
                 }
                 if (spawnGrid[laneNum, 0].tag == "Wall")
                 {
                     spawnGrid[laneNum, 1] = Instantiate(spawnGrid[laneNum, 0], currentSpawn.transform.GetChild(1));
-                    spawnGrid[laneNum, 1].GetComponent<breakableWall>().setHealth(spawnGrid[laneNum, 0].GetComponent<breakableWall>().getHealth());
+                    spawnGrid[laneNum, 1].GetComponent<breakableWall>().SetHealth(spawnGrid[laneNum, 0].GetComponent<breakableWall>().GetHealth());
                     Destroy(spawnGrid[laneNum, 0]);
                 }
             }
@@ -188,13 +187,13 @@ public class GameManager : MonoBehaviour
                 if (spawnGrid[laneNum, 2].tag == "Turret")
                 {
                     spawnGrid[laneNum, 3] = Instantiate(spawnGrid[laneNum, 2], currentSpawn.transform.GetChild(3));
-                    spawnGrid[laneNum, 3].GetComponent<fireBullet>().setHealth(spawnGrid[laneNum, 2].GetComponent<fireBullet>().getHealth());
+                    spawnGrid[laneNum, 3].GetComponent<fireBullet>().SetHealth(spawnGrid[laneNum, 2].GetComponent<fireBullet>().GetHealth());
                     Destroy(spawnGrid[laneNum, 2]);
                 }
                 if (spawnGrid[laneNum, 2].tag == "Wall")
                 {
                     spawnGrid[laneNum, 3] = Instantiate(spawnGrid[laneNum, 2], currentSpawn.transform.GetChild(3));
-                    spawnGrid[laneNum, 3].GetComponent<breakableWall>().setHealth(spawnGrid[laneNum, 2].GetComponent<breakableWall>().getHealth());
+                    spawnGrid[laneNum, 3].GetComponent<breakableWall>().SetHealth(spawnGrid[laneNum, 2].GetComponent<breakableWall>().GetHealth());
                     Destroy(spawnGrid[laneNum, 2]);
                 }
             }
@@ -203,13 +202,13 @@ public class GameManager : MonoBehaviour
                 if (spawnGrid[laneNum, 1].tag == "Turret")
                 {
                     spawnGrid[laneNum, 2] = Instantiate(spawnGrid[laneNum, 1], currentSpawn.transform.GetChild(2));
-                    spawnGrid[laneNum, 2].GetComponent<fireBullet>().setHealth(spawnGrid[laneNum, 1].GetComponent<fireBullet>().getHealth());
+                    spawnGrid[laneNum, 2].GetComponent<fireBullet>().SetHealth(spawnGrid[laneNum, 1].GetComponent<fireBullet>().GetHealth());
                     Destroy(spawnGrid[laneNum, 1]);
                 }
                 if (spawnGrid[laneNum, 1].tag == "Wall")
                 {
                     spawnGrid[laneNum, 2] = Instantiate(spawnGrid[laneNum, 1], currentSpawn.transform.GetChild(2));
-                    spawnGrid[laneNum, 2].GetComponent<breakableWall>().setHealth(spawnGrid[laneNum, 1].GetComponent<breakableWall>().getHealth());
+                    spawnGrid[laneNum, 2].GetComponent<breakableWall>().SetHealth(spawnGrid[laneNum, 1].GetComponent<breakableWall>().GetHealth());
                     Destroy(spawnGrid[laneNum, 1]);
                 }
             }
@@ -218,13 +217,13 @@ public class GameManager : MonoBehaviour
                 if (spawnGrid[laneNum, 0].tag == "Turret")
                 {
                     spawnGrid[laneNum, 1] = Instantiate(spawnGrid[laneNum, 0], currentSpawn.transform.GetChild(1));
-                    spawnGrid[laneNum, 1].GetComponent<fireBullet>().setHealth(spawnGrid[laneNum, 0].GetComponent<fireBullet>().getHealth());
+                    spawnGrid[laneNum, 1].GetComponent<fireBullet>().SetHealth(spawnGrid[laneNum, 0].GetComponent<fireBullet>().GetHealth());
                     Destroy(spawnGrid[laneNum, 0]);
                 }
                 if (spawnGrid[laneNum, 0].tag == "Wall")
                 {
                     spawnGrid[laneNum, 1] = Instantiate(spawnGrid[laneNum, 0], currentSpawn.transform.GetChild(1));
-                    spawnGrid[laneNum, 1].GetComponent<breakableWall>().setHealth(spawnGrid[laneNum, 0].GetComponent<breakableWall>().getHealth());
+                    spawnGrid[laneNum, 1].GetComponent<breakableWall>().SetHealth(spawnGrid[laneNum, 0].GetComponent<breakableWall>().GetHealth());
                     Destroy(spawnGrid[laneNum, 0]);
                 }
             }
@@ -262,6 +261,67 @@ public class GameManager : MonoBehaviour
             //{
             //    spawnGrid[laneNum, 0] = Instantiate(wall, currentSpawn.transform.GetChild(0));
             //}
+        }
+    }
+
+    public void BuildDefense(int padNum, int buildType)
+    {
+        if (spawnGrid[padNum, 3] != null)
+        {
+            Destroy(spawnGrid[padNum, 3]);
+        }
+        if (spawnGrid[padNum, 2] != null)
+        {
+            if (spawnGrid[padNum, 2].tag == "Turret")
+            {
+                spawnGrid[padNum, 3] = Instantiate(spawnGrid[padNum, 2], currentSpawn.transform.GetChild(3));
+                spawnGrid[padNum, 3].GetComponent<fireBullet>().SetHealth(spawnGrid[padNum, 2].GetComponent<fireBullet>().GetHealth());
+                Destroy(spawnGrid[padNum, 2]);
+            }
+            if (spawnGrid[padNum, 2].tag == "Wall")
+            {
+                spawnGrid[padNum, 3] = Instantiate(spawnGrid[padNum, 2], currentSpawn.transform.GetChild(3));
+                spawnGrid[padNum, 3].GetComponent<breakableWall>().SetHealth(spawnGrid[padNum, 2].GetComponent<breakableWall>().GetHealth());
+                Destroy(spawnGrid[padNum, 2]);
+            }
+        }
+        if (spawnGrid[padNum, 1] != null)
+        {
+            if (spawnGrid[padNum, 1].tag == "Turret")
+            {
+                spawnGrid[padNum, 2] = Instantiate(spawnGrid[padNum, 1], currentSpawn.transform.GetChild(2));
+                spawnGrid[padNum, 2].GetComponent<fireBullet>().SetHealth(spawnGrid[padNum, 1].GetComponent<fireBullet>().GetHealth());
+                Destroy(spawnGrid[padNum, 1]);
+            }
+            if (spawnGrid[padNum, 1].tag == "Wall")
+            {
+                spawnGrid[padNum, 2] = Instantiate(spawnGrid[padNum, 1], currentSpawn.transform.GetChild(2));
+                spawnGrid[padNum, 2].GetComponent<breakableWall>().SetHealth(spawnGrid[padNum, 1].GetComponent<breakableWall>().GetHealth());
+                Destroy(spawnGrid[padNum, 1]);
+            }
+        }
+        if (spawnGrid[padNum, 0] != null)
+        {
+            if (spawnGrid[padNum, 0].tag == "Turret")
+            {
+                spawnGrid[padNum, 1] = Instantiate(spawnGrid[padNum, 0], currentSpawn.transform.GetChild(1));
+                spawnGrid[padNum, 1].GetComponent<fireBullet>().SetHealth(spawnGrid[padNum, 0].GetComponent<fireBullet>().GetHealth());
+                Destroy(spawnGrid[padNum, 0]);
+            }
+            if (spawnGrid[padNum, 0].tag == "Wall")
+            {
+                spawnGrid[padNum, 1] = Instantiate(spawnGrid[padNum, 0], currentSpawn.transform.GetChild(1));
+                spawnGrid[padNum, 1].GetComponent<breakableWall>().SetHealth(spawnGrid[padNum, 0].GetComponent<breakableWall>().GetHealth());
+                Destroy(spawnGrid[padNum, 0]);
+            }
+        }
+        if (buildType == 0)
+        {
+            spawnGrid[padNum, 0] = Instantiate(turret, currentSpawn.transform.GetChild(0));
+        }
+        if (buildType == 1)
+        {
+            spawnGrid[padNum, 0] = Instantiate(wall, currentSpawn.transform.GetChild(0));
         }
     }
 }
