@@ -11,6 +11,11 @@ public class player : MonoBehaviour
 
     public int life = 3;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         for (int i = 0; i < hearts.Length; i++)

@@ -43,19 +43,10 @@ public class GunScript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 
-            Debug.Log("Turret Selected");
-            itemSel = 0;
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-
-            Debug.Log("Wall Selected");
-            itemSel = 1;
+            itemSel = (itemSel +1) % 2;
 
         }
 
