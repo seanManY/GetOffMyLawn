@@ -5,15 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject lane1Spawn;
-    public GameObject lane2Spawn;
-    public GameObject lane3Spawn;
-    public GameObject lane4Spawn;
-    public GameObject lane5Spawn;
-    public GameObject lane6Spawn;
-    public GameObject lane7Spawn;
-    public GameObject lane8Spawn;
-    public GameObject lane9Spawn;
+    public GameObject lane1Spawns;
+    public GameObject lane2Spawns;
+    public GameObject lane3Spawns;
+    public GameObject lane4Spawns;
+    public GameObject lane5Spawns;
+    public GameObject lane6Spawns;
+    public GameObject lane7Spawns;
+    public GameObject lane8Spawns;
+    public GameObject lane9Spawns;
 
     public GameObject basicEnemy;
 
