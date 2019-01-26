@@ -105,4 +105,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 714026630575340120, guid: 30382bc251bf04342b5d3f9f00f4a58a, type: 3}
+  parent: {fileID: 8150351806694016791}
   trigger: 120
