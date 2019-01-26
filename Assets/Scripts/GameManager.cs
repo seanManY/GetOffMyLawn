@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //lane1Spawn.transform.localPosition = new Vector3(0, 0, 0);
+        Instantiate(basicEnemy, lane1Spawn.transform);
         
     }
 
