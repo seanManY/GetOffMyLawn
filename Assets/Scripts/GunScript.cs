@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class GunScript : MonoBehaviour
 
@@ -9,7 +10,11 @@ public class GunScript : MonoBehaviour
     public float damage = 10;
     public float range = 100f;
 
+    public Image[] ammo;
+
     public Camera fpsCam;
+
+    int bullets = 6;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +24,24 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        
+        if (Input.GetButtonDown("Fire1") && bullets > 0)
         {
+            bullets--;
             Shoot();
 
+        }
+
+        for (int i = 0; i < ammo.Length; i++)
+        {
+            if (i < bullets)
+            {
+                ammo[i].enabled = true;
+            }
+            else
+            {
+                ammo[i].enabled = false;
+            }
         }
 
     }
