@@ -19,8 +19,6 @@ public class breakableWall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        Debug.Log(health);
     }
 
     void OnCollisionStay(Collision col)
