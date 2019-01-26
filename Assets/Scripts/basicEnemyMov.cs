@@ -5,11 +5,11 @@ using UnityEngine;
 public class basicEnemyMov : MonoBehaviour
 {
     public float speed = 1f;
-    int health;
+    public int health = 100;
     
     void Start()
     {
-        health = 100;
+        
     }
 
     void FixedUpdate()
