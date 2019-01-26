@@ -10,6 +10,10 @@ public class GunScript : MonoBehaviour
     public float damage = 10;
     public float range = 100f;
 
+    private int itemSel = 0;
+
+    public GameManager GM;
+
     public Image[] ammo;
 
     public Camera fpsCam;
@@ -31,6 +35,31 @@ public class GunScript : MonoBehaviour
             Shoot();
 
         }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            
+            Build();
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+
+            Debug.Log("Turret Selected");
+            itemSel = 0;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+
+            Debug.Log("Wall Selected");
+            itemSel = 1;
+
+        }
+
+
 
         for (int i = 0; i < ammo.Length; i++)
         {
@@ -56,8 +85,66 @@ public class GunScript : MonoBehaviour
             basicEnemyMov target = hit.transform.GetComponent<basicEnemyMov>();
             if(target != null)
             {
+                
                 target.TakeDamage(100);
             }
+
+
+        }
+    }
+
+    void Build()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            int num = 0;
+
+            if (hit.transform.tag == "DDrop")
+            {
+
+                if (hit.transform.parent.name == "lane1")
+                {
+                    num = 1;
+                }
+                else if (hit.transform.parent.name == "lane2")
+                {
+                    num = 2;
+                }
+                else if (hit.transform.parent.name == "lane3")
+                {
+                    num = 3;
+                }
+                else if (hit.transform.parent.name == "lane4")
+                {
+                    num = 4;
+                }
+                else if (hit.transform.parent.name == "lane5")
+                {
+                    num = 5;
+                }
+                else if (hit.transform.parent.name == "lane6")
+                {
+                    num = 6;
+                }
+                else if (hit.transform.parent.name == "lane7")
+                {
+                    num = 7;
+                }
+                else if (hit.transform.parent.name == "lane8")
+                {
+                    num = 8;
+                }
+                else if (hit.transform.parent.name == "lane9")
+                {
+                    num = 9;
+                }
+
+                //function
+                GM.BuildDefense(num-1, itemSel);
+            }
+
+            
 
         }
     }
