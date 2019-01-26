@@ -29,4 +29,9 @@ public class basicEnemyMov : MonoBehaviour
             health = health - 25;
         }
     }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+    }
 }
