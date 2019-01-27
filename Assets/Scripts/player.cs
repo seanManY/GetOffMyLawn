@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -20,12 +21,31 @@ public class player : MonoBehaviour
     private float nextReward;
 
     public TextMeshProUGUI TextPro;
+    public TextMeshProUGUI WaveCount;
 
     private void Start()
     {
         nextReward = 5;
         Cursor.visible = false;
         TextPro.text = "Shmeckles: " + funds;
+        Debug.Log((SceneManager.GetActiveScene().name));
+        switch ((SceneManager.GetActiveScene().name))
+        {
+            case ("Level 1"): WaveCount.text = "Wave: " + 1;
+                break;
+            case ("Level 2"):
+                WaveCount.text = "Wave: " + 2;
+                break;
+            case ("Level 3"):
+                WaveCount.text = "Wave: " + 3;
+                break;
+            case ("Level 4"):
+                WaveCount.text = "Wave: " + 4;
+                break;
+            case ("Level 5"):
+                WaveCount.text = "Wave: " + 5;
+                break;
+        }
     }
 
     void Update()
