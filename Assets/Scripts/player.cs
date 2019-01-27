@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class player : MonoBehaviour
 {
@@ -11,9 +12,16 @@ public class player : MonoBehaviour
 
     public int life = 3;
 
+    public int funds = 100;
+    public int towerCost = 25;
+    public int wallCost = 15;
+
+    public TextMeshProUGUI TextPro;
+
     private void Start()
     {
         Cursor.visible = false;
+        TextPro.text = "Shmeckles: " + funds;
     }
 
     void Update()
@@ -28,7 +36,8 @@ public class player : MonoBehaviour
             {
                 hearts[i].enabled = false;
             }
-        }     
+        }
+        TextPro.text = "Shmeckles: " + funds;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,5 +53,32 @@ public class player : MonoBehaviour
                 Debug.Log("you are dead");
             }
         }
+    }
+
+    public void SpendFunds(int item)
+    {
+        Debug.Log("IM BEING CALLED");
+        switch (item)
+        {
+            case 0: funds -= towerCost;
+                break;
+            case 1: funds -= wallCost;
+                break;
+        }
+    }
+
+    public int getFunds()
+    {
+        return funds;
+    }
+
+    public int getTowerCost()
+    {
+        return towerCost;
+    }
+
+    public int getWallCost()
+    {
+        return wallCost;
     }
 }

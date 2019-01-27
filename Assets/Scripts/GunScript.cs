@@ -10,9 +10,14 @@ public class GunScript : MonoBehaviour
     public float damage = 10;
     public float range = 100f;
 
+    
     private int itemSel = 0;
 
     public GameManager GM;
+    public player player;
+    int playerFunds;
+    int towerCost;
+    int wallCost;
 
     public Image[] ammo;
 
@@ -24,14 +29,16 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerFunds = player.GetComponent<player>().getFunds();
+        towerCost = player.GetComponent<player>().getTowerCost();
+        wallCost = player.GetComponent<player>().getWallCost();
         icon[1].enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        playerFunds = player.GetComponent<player>().getFunds();
         if (Input.GetButtonDown("Fire1") && bullets > 0)
         {
             bullets--;
@@ -42,7 +49,17 @@ public class GunScript : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             
-            Build();
+            if(itemSel == 0 && playerFunds >= towerCost)
+            {
+                player.GetComponent<player>().SpendFunds(0);
+                Build();
+            }
+            else if (itemSel == 1 && playerFunds >= wallCost)
+            {
+                player.GetComponent<player>().SpendFunds(1);
+                Build();
+            }
+
 
         }
 
@@ -75,7 +92,7 @@ public class GunScript : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+
 
             basicEnemyMov target = hit.transform.GetComponent<basicEnemyMov>();
             if(target != null)
