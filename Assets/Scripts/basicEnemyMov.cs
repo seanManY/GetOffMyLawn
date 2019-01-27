@@ -10,28 +10,39 @@ public class basicEnemyMov : MonoBehaviour
     public player playaplay;
     public int awardPoints =10;
 
+    private Animator anime;
+
+    Collider collides;
     float xPos;
     float yPos;
-    
+    bool isDead;
+
     void Start()
     {
-        
+        anime = GetComponentInChildren<Animator>();
 
         xPos = this.transform.localPosition.x;
         yPos = this.transform.localPosition.y;
+
+        collides = GetComponent<Collider>();
+        isDead = false;
     }
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
-
-        transform.localPosition = new Vector3(xPos, yPos, this.transform.localPosition.z);
-
-        if (health <= 0)
+        if (isDead == false)
         {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.localPosition = new Vector3(xPos, yPos, this.transform.localPosition.z);
+        }
 
+        if (health <= 0 && isDead == false)
+        {
+            isDead = true;
             playaplay.GetComponent<player>().addFunds(awardPoints);
-            Destroy(this.gameObject);
+            collides.enabled = false;
+            anime.SetTrigger("Death");
+            Destroy(this.gameObject, 3);
         }
     }
 
@@ -46,6 +57,13 @@ public class basicEnemyMov : MonoBehaviour
         {
             health = 0;
         }
+    }
+
+    void Dead()
+    {
+        playaplay.GetComponent<player>().addFunds(awardPoints);
+        anime.SetTrigger("Death");
+        Destroy(this.gameObject, 3);
     }
 
     public void TakeDamage(int amount)
