@@ -10,6 +10,10 @@ public class basicEnemyMov : MonoBehaviour
     public player playaplay;
     public int awardPoints =10;
 
+
+    public GameObject hitFX;
+    public GameObject explodeFX;
+
     private Animator anime;
 
     Collider collides;
@@ -43,6 +47,7 @@ public class basicEnemyMov : MonoBehaviour
             FindObjectOfType<GameManager>().CountDeath();
             collides.enabled = false;
             anime.SetTrigger("Death");
+            Instantiate(explodeFX, this.transform);
             FindObjectOfType<AudioManage>().Play("EnemyDeath");
             Destroy(this.gameObject, 3);
         }
@@ -54,6 +59,7 @@ public class basicEnemyMov : MonoBehaviour
         {
             health = health - 25;
             FindObjectOfType<AudioManage>().Play("EnemyHit");
+            Instantiate(hitFX, this.transform);
         }
 
         if(col.gameObject.tag == "Player")
