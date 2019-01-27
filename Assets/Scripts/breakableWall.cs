@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class breakableWall : MonoBehaviour
 {
+    public GameObject spawnFX;
     public int health = 300;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instantiate(spawnFX, this.transform);
     }
 
     // Update is called once per frame

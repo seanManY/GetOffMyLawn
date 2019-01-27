@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 714026630575340120, guid: 30382bc251bf04342b5d3f9f00f4a58a, type: 3}
   parent: {fileID: 8150351806694016791}
+  spawnFX: {fileID: 100000, guid: b7a5dd96bb4187348909e660f427221b, type: 3}
   trigger: 120
   health: 100
 --- !u!1001 &2410753869630686388

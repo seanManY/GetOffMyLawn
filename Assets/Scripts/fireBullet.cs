@@ -6,6 +6,7 @@ public class fireBullet : MonoBehaviour
 {
     public GameObject bullet;
     public Transform parent;
+    public GameObject spawnFX;
     public int trigger = 10;
     public int health = 100;
     int count;
@@ -14,6 +15,7 @@ public class fireBullet : MonoBehaviour
     void Start()
     {
         count = trigger/2;
+        Instantiate(spawnFX, this.transform);
     }
 
     // Update is called once per frame
