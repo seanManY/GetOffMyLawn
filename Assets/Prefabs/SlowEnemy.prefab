@@ -114,6 +114,7 @@ MonoBehaviour:
   awardPoints: 10
   hitFX: {fileID: 100014, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
   explodeFX: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
+  treeFX: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
 --- !u!54 &5080654995377588152
 Rigidbody:
   m_ObjectHideFlags: 0

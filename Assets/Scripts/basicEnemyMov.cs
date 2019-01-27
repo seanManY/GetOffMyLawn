@@ -13,6 +13,7 @@ public class basicEnemyMov : MonoBehaviour
 
     public GameObject hitFX;
     public GameObject explodeFX;
+    public GameObject treeFX;
 
     private Animator anime;
 
@@ -65,6 +66,15 @@ public class basicEnemyMov : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             health = 0;
+        }
+    }
+
+    void OnTriggerEnter(Collider trig)
+    {
+        if (trig.gameObject.tag == "Tree")
+        {
+            Instantiate(treeFX, trig.transform);
+            Destroy(trig.gameObject);
         }
     }
 

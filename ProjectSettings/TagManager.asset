@@ -10,6 +10,8 @@ TagManager:
   - Turret
   - DDrop
   - Stage
+  - FxTemporaire
+  - Tree
   layers:
   - Default
   - TransparentFX
