@@ -17,5 +17,6 @@ public class TouchController : MonoBehaviour
     void Update()
     {
         transform.localPosition = OVRInput.GetLocalControllerPosition(controller);
+        transform.localRotation = OVRInput.GetLocalControllerRotation(controller);
     }
 }
