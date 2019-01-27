@@ -40,12 +40,14 @@ public class GameManager : MonoBehaviour
 
     Transform currentSpawn;
     GameObject[,] spawnGrid;
+    public bool endLevel;
 
     //int laneNum;
 
     // Start is called before the first frame update
     void Start()
     {
+        endLevel = false;
         spawnCount = 0;
         spawnNum = 0;
         deathCount = fastEnemyCount + normEnemyCount + slowEnemyCount;
@@ -206,9 +208,11 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     public float restartDelay = 4f;
     public GameObject deathMenuUI;
+    
 
     public void EndGame()
     {
+        endLevel = true;
         deathMenuUI.SetActive(true);
         Time.timeScale = 1f;
         PauseMenu.GameIsPaused = true;
@@ -225,6 +229,7 @@ public class GameManager : MonoBehaviour
     public GameObject continueMenuUI;
     public void Continue()
     {
+        endLevel = true;
         continueMenuUI.SetActive(true);
         Time.timeScale = 1f;
         PauseMenu.GameIsPaused = true;
