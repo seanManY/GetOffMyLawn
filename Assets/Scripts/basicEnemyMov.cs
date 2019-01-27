@@ -40,8 +40,10 @@ public class basicEnemyMov : MonoBehaviour
         {
             isDead = true;
             playaplay.GetComponent<player>().addFunds(awardPoints);
+            FindObjectOfType<GameManager>().CountDeath();
             collides.enabled = false;
             anime.SetTrigger("Death");
+            FindObjectOfType<AudioManage>().Play("EnemyDeath");
             Destroy(this.gameObject, 3);
         }
     }
@@ -51,7 +53,7 @@ public class basicEnemyMov : MonoBehaviour
         if (col.gameObject.tag == "Bullet")
         {
             health = health - 25;
-            FindObjectOfType<AudioManage>().Play("Enemy Hit");
+            FindObjectOfType<AudioManage>().Play("EnemyHit");
         }
 
         if(col.gameObject.tag == "Player")

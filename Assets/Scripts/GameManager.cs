@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     int spawnCount;
     int spawnNum;
+    int deathCount;
+    bool noEnemies;
 
     Transform currentSpawn;
     GameObject[,] spawnGrid;
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
     {
         spawnCount = 0;
         spawnNum = 0;
+        deathCount = fastEnemyCount + normEnemyCount + slowEnemyCount;
+        noEnemies = false;
 
         play = Instantiate(player);
         play.GetComponentInChildren<GunScript>().setGM(this);
@@ -95,6 +99,12 @@ public class GameManager : MonoBehaviour
             enemy.GetComponent<basicEnemyMov>().setPlayer(play);
             spawnNum++;
             spawnCount = 0;
+        }
+
+        if (deathCount <= 0 && noEnemies == false)
+        {
+            noEnemies = true;
+            Debug.Log("You Win"); //Win the game function goes here.
         }
     }
 
@@ -215,6 +225,11 @@ public class GameManager : MonoBehaviour
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void CountDeath()
+    {
+        deathCount--;
     }
 
 
