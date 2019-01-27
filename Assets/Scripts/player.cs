@@ -62,6 +62,7 @@ public class player : MonoBehaviour
             if(life <= 0)
             {
                 Debug.Log("you are dead");
+                FindObjectOfType<GameManager>().EndGame();
             }
         }
     }
