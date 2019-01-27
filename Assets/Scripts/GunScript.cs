@@ -49,7 +49,7 @@ public class GunScript : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             
-            if(playerFunds >= towerCost || playerFunds >= wallCost)
+            if((itemSel == 0 && playerFunds >= towerCost) || (itemSel == 1 && playerFunds >= wallCost))
             {
                 
                 Build(itemSel);
