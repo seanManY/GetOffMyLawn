@@ -112,6 +112,8 @@ MonoBehaviour:
   playaplay: {fileID: 7156634979787414130, guid: d704e28b8fdd62e4cae07fe9c9ac4904,
     type: 3}
   awardPoints: 10
+  hitFX: {fileID: 100014, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
+  explodeFX: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
 --- !u!54 &5080654995377588152
 Rigidbody:
   m_ObjectHideFlags: 0

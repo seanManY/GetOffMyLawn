@@ -25,6 +25,8 @@ public class GunScript : MonoBehaviour
 
     public Image[] icon;
 
+    public GameObject muzzleFX;
+
     int bullets = 6;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class GunScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && bullets > 0 && !PauseMenu.GameIsPaused)
         {
             bullets--;
+            Instantiate(muzzleFX, this.transform);
             FindObjectOfType<AudioManage>().Play("Revolver");
             Shoot();
 
