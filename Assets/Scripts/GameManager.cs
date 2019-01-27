@@ -195,15 +195,21 @@ public class GameManager : MonoBehaviour
 
     bool gameHasEnded = false;
     public float restartDelay = 4f;
+    public GameObject deathMenuUI;
 
     public void EndGame()
     {
-        if(gameHasEnded == false)
-        {
-            gameHasEnded = true;
-            Restart();
-            Invoke("Restart", restartDelay);
-        }
+        deathMenuUI.SetActive(true);
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = true;
+        //PauseMenu.GameIsPaused = true;
+
+        //if(gameHasEnded == false)
+        //{
+        //    gameHasEnded = true;
+        //    Restart();
+        //    Invoke("Restart", restartDelay);
+        //}
     }
 
     void Restart()

@@ -33,10 +33,15 @@ public class player : MonoBehaviour
 
         if(PauseMenu.GameIsPaused)
         {
+            
             Cursor.visible = true;
         }
+        else
+        {
+            Cursor.visible = false;
+        }
         
-        Cursor.visible = false;
+        
         if (Time.time >= nextReward)
         {
             nextReward = Time.time + rewardRate;
