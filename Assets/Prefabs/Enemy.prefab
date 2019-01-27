@@ -32,7 +32,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5916128657019664508}
+  - {fileID: 4368235202055375477}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -128,7 +128,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
---- !u!1001 &5916128657019789964
+--- !u!1001 &4368235202054983813
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,7 +137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100112, guid: 7dce7937abfd16a43ba26498001e20ac, type: 3}
       propertyPath: m_Name
-      value: Robot
+      value: Norm Robot
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: 7dce7937abfd16a43ba26498001e20ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,11 +195,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 7dce7937abfd16a43ba26498001e20ac, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 57571654aa9238d4ab6e2525680721c7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dce7937abfd16a43ba26498001e20ac, type: 3}
---- !u!4 &5916128657019664508 stripped
+--- !u!4 &4368235202055375477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400112, guid: 7dce7937abfd16a43ba26498001e20ac,
     type: 3}
-  m_PrefabInstance: {fileID: 5916128657019789964}
+  m_PrefabInstance: {fileID: 4368235202054983813}
   m_PrefabAsset: {fileID: 0}
