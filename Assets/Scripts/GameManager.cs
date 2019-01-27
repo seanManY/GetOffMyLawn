@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject fastEnemy;
     public GameObject normEnemy;
     public GameObject slowEnemy;
+    public GameObject bossEnemy;
 
     public GameObject level;
     //public GameObject laneSpawns1;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public int fastEnemyCount = 0;
     public int normEnemyCount = 0;
     public int slowEnemyCount = 0;
+    public bool hasBoss = false;
     public int spawnRate = 0;
 
     GameObject[] enemyList;
@@ -50,7 +52,6 @@ public class GameManager : MonoBehaviour
         endLevel = false;
         spawnCount = 0;
         spawnNum = 0;
-        deathCount = fastEnemyCount + normEnemyCount + slowEnemyCount;
         noEnemies = false;
 
         play = Instantiate(player);
@@ -60,8 +61,17 @@ public class GameManager : MonoBehaviour
         //laneNum = 4;
 
         spawnGrid = new GameObject[9, 4];
-        
-        enemyList = new GameObject[fastEnemyCount + normEnemyCount + slowEnemyCount];
+
+        if (hasBoss == false)
+        {
+            enemyList = new GameObject[fastEnemyCount + normEnemyCount + slowEnemyCount];
+        }
+        else
+        {
+            enemyList = new GameObject[fastEnemyCount + normEnemyCount + slowEnemyCount + 1];
+            enemyList[fastEnemyCount + normEnemyCount + slowEnemyCount] = bossEnemy;
+        }
+
         for (int i = 0; i < fastEnemyCount; i++)
         {
             enemyList[i] = fastEnemy;
@@ -75,13 +85,16 @@ public class GameManager : MonoBehaviour
             enemyList[i] = slowEnemy;
         }
 
-        for (int i = 0; i < enemyList.Length; i++)
+        for (int i = 0; i < fastEnemyCount + normEnemyCount + slowEnemyCount; i++)
         {
-            int rand = Random.Range(0, enemyList.Length);
+            int rand = Random.Range(0, fastEnemyCount + normEnemyCount + slowEnemyCount);
             GameObject temp = enemyList[rand];
             enemyList[rand] = enemyList[i];
             enemyList[i] = temp;
         }
+
+        deathCount = enemyList.Length;
+        
         //for (int j = 0; j < 8; j++)
         //{
         //    for (int i = 0; i < 3; i++)
@@ -95,9 +108,16 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         spawnCount++;
-        if (spawnCount >= spawnRate*10 && spawnNum < enemyList.Length)
+        if (spawnCount >= spawnRate*10 && spawnNum < fastEnemyCount + normEnemyCount + slowEnemyCount)
         {
             GameObject enemy = Instantiate(enemyList[spawnNum], level.transform.GetChild(Random.Range(0,8)).GetChild(4));
+            enemy.GetComponent<basicEnemyMov>().setPlayer(play);
+            spawnNum++;
+            spawnCount = 0;
+        }
+        else if(spawnCount >= spawnRate * 20 && spawnNum == fastEnemyCount + normEnemyCount + slowEnemyCount)
+        {
+            GameObject enemy = Instantiate(enemyList[spawnNum], level.transform.GetChild(4).GetChild(4));
             enemy.GetComponent<basicEnemyMov>().setPlayer(play);
             spawnNum++;
             spawnCount = 0;
