@@ -39,7 +39,7 @@ public class GunScript : MonoBehaviour
     void Update()
     {
         playerFunds = player.GetComponent<player>().getFunds();
-        if (Input.GetButtonDown("Fire1") && bullets > 0)
+        if (Input.GetButtonDown("Fire1") && bullets > 0 && !PauseMenu.GameIsPaused)
         {
             bullets--;
             Shoot();
