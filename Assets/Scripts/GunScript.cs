@@ -42,6 +42,7 @@ public class GunScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && bullets > 0 && !PauseMenu.GameIsPaused)
         {
             bullets--;
+            FindObjectOfType<AudioManage>().Play("Revolver");
             Shoot();
 
         }

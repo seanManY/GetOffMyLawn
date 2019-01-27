@@ -25212,7 +25212,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -61691,6 +61691,150 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1341390869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1341687685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 290851271278959870, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290851271278959868, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e032c14de11b284388fbf67aaf20a1e, type: 3}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: Theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.699
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Revolver
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a15fe9550ad3acc4299343d991f2b1d6, type: 3}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: EnemyHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fb6393e424f3dc478099837f0a05442, type: 3}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380763548076197127, guid: 32926b77fa531f9468e0cf1a9f8f16a0,
+        type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32926b77fa531f9468e0cf1a9f8f16a0, type: 3}
 --- !u!1001 &1341989814
 PrefabInstance:
   m_ObjectHideFlags: 0
