@@ -23,6 +23,9 @@ public class player : MonoBehaviour
     public TextMeshProUGUI TextPro;
     public TextMeshProUGUI WaveCount;
 
+    public GameObject PlayerUI;
+
+
     private void Start()
     {
         nextReward = 5;
@@ -55,9 +58,13 @@ public class player : MonoBehaviour
         {
             
             Cursor.visible = true;
+            PlayerUI.SetActive(false);
+
         }
         else
         {
+            PlayerUI.SetActive(true);
+
             Cursor.visible = false;
         }
         
