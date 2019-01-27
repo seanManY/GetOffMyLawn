@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     //public GameObject laneSpawns8;
     //public GameObject laneSpawns9;
 
+    public player player;
+    public player play;
+
     public int fastEnemyCount = 0;
     public int normEnemyCount = 0;
     public int slowEnemyCount = 0;
@@ -42,6 +45,9 @@ public class GameManager : MonoBehaviour
     {
         spawnCount = 0;
         spawnNum = 0;
+
+        play = Instantiate(player);
+        play.GetComponentInChildren<GunScript>().setGM(this);
 
         currentSpawn = level.transform.GetChild(4);
         //laneNum = 4;
@@ -84,7 +90,8 @@ public class GameManager : MonoBehaviour
         spawnCount++;
         if (spawnCount >= spawnRate*10 && spawnNum < enemyList.Length)
         {
-            Instantiate(enemyList[spawnNum], level.transform.GetChild(Random.Range(0,8)).GetChild(4));
+            GameObject enemy = Instantiate(enemyList[spawnNum], level.transform.GetChild(Random.Range(0,8)).GetChild(4));
+            enemy.GetComponent<basicEnemyMov>().setPlayer(play);
             spawnNum++;
             spawnCount = 0;
         }

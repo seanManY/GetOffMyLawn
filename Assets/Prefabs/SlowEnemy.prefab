@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   health: 200
+  playaplay: {fileID: 7156634979787414130, guid: d704e28b8fdd62e4cae07fe9c9ac4904,
+    type: 3}
 --- !u!54 &5080654995377588152
 Rigidbody:
   m_ObjectHideFlags: 0

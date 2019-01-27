@@ -16,16 +16,27 @@ public class player : MonoBehaviour
     public int towerCost = 25;
     public int wallCost = 15;
 
+    public float rewardRate = 5f;
+    private float nextReward;
+
     public TextMeshProUGUI TextPro;
 
     private void Start()
     {
+        nextReward = 5;
         Cursor.visible = false;
         TextPro.text = "Shmeckles: " + funds;
     }
 
     void Update()
     {
+
+        if(Time.time>=nextReward)
+        {
+            nextReward = Time.time + rewardRate;
+            funds += 5;
+        }
+
         for (int i = 0; i < hearts.Length; i++)
         {
             if(i < life)
@@ -70,6 +81,11 @@ public class player : MonoBehaviour
     public int getFunds()
     {
         return funds;
+    }
+
+    public void addFunds(int newFunds)
+    {
+        funds += newFunds;
     }
 
     public int getTowerCost()

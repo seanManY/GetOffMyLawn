@@ -7,11 +7,16 @@ public class basicEnemyMov : MonoBehaviour
     public float speed = 1f;
     public int health = 100;
 
+    public player playaplay;
+    public int awardPoints =10;
+
     float xPos;
     float yPos;
     
     void Start()
     {
+        
+
         xPos = this.transform.localPosition.x;
         yPos = this.transform.localPosition.y;
     }
@@ -24,6 +29,8 @@ public class basicEnemyMov : MonoBehaviour
 
         if (health <= 0)
         {
+            Debug.Log("here");
+            playaplay.GetComponent<player>().addFunds(awardPoints);
             Destroy(this.gameObject);
         }
     }
@@ -44,5 +51,10 @@ public class basicEnemyMov : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+    }
+
+    public void setPlayer(player player)
+    {
+        playaplay = player;
     }
 }

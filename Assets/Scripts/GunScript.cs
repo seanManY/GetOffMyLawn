@@ -13,7 +13,7 @@ public class GunScript : MonoBehaviour
     
     private int itemSel = 0;
 
-    public GameManager GM;
+    private GameManager GM;
     public player player;
     int playerFunds;
     int towerCost;
@@ -159,5 +159,10 @@ public class GunScript : MonoBehaviour
             
 
         }
+    }
+
+    public void setGM(GameManager _GM)
+    {
+        GM = _GM;
     }
 }
