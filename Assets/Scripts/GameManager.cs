@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         if (deathCount <= 0 && noEnemies == false)
         {
             noEnemies = true;
-            Debug.Log("You Win"); //Win the game function goes here.
+            Continue();
         }
     }
 
@@ -220,6 +220,14 @@ public class GameManager : MonoBehaviour
         //    Restart();
         //    Invoke("Restart", restartDelay);
         //}
+    }
+
+    public GameObject continueMenuUI;
+    public void Continue()
+    {
+        continueMenuUI.SetActive(true);
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = true;
     }
 
     void Restart()
