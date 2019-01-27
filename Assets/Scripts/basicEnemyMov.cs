@@ -29,7 +29,7 @@ public class basicEnemyMov : MonoBehaviour
             health = health - 25;
         }
 
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.tag == "Stage")
         {
             health = 0;
         }
