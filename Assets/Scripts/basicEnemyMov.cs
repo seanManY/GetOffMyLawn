@@ -6,15 +6,21 @@ public class basicEnemyMov : MonoBehaviour
 {
     public float speed = 1f;
     public int health = 100;
+
+    float xPos;
+    float yPos;
     
     void Start()
     {
-        
+        xPos = this.transform.localPosition.x;
+        yPos = this.transform.localPosition.y;
     }
 
     void FixedUpdate()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+        transform.localPosition = new Vector3(xPos, yPos, this.transform.localPosition.z);
 
         if (health <= 0)
         {
