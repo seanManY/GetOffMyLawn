@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     //public GameObject laneSpawns9;
 
     public player player;
-    public player play;
+    private player play;
 
     public int fastEnemyCount = 0;
     public int normEnemyCount = 0;
