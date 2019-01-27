@@ -51,19 +51,13 @@ public class basicEnemyMov : MonoBehaviour
         if (col.gameObject.tag == "Bullet")
         {
             health = health - 25;
+            FindObjectOfType<AudioManage>().Play("Enemy Hit");
         }
 
         if(col.gameObject.tag == "Player")
         {
             health = 0;
         }
-    }
-
-    void Dead()
-    {
-        playaplay.GetComponent<player>().addFunds(awardPoints);
-        anime.SetTrigger("Death");
-        Destroy(this.gameObject, 3);
     }
 
     public void TakeDamage(int amount)
