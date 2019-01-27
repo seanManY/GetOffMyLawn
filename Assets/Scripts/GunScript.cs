@@ -49,15 +49,10 @@ public class GunScript : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             
-            if(itemSel == 0 && playerFunds >= towerCost)
+            if(playerFunds >= towerCost || playerFunds >= wallCost)
             {
-                player.GetComponent<player>().SpendFunds(0);
-                Build();
-            }
-            else if (itemSel == 1 && playerFunds >= wallCost)
-            {
-                player.GetComponent<player>().SpendFunds(1);
-                Build();
+                
+                Build(itemSel);
             }
 
 
@@ -105,12 +100,15 @@ public class GunScript : MonoBehaviour
         }
     }
 
-    void Build()
+    void Build(int item)
     {
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range) 
+            && hit.transform.tag != "Enemy")
         {
             int num = 0;
+
+            player.GetComponent<player>().SpendFunds(item);
 
             if (hit.transform.tag == "DDrop")
             {
