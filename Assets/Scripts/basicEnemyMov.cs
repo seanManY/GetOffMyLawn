@@ -29,7 +29,7 @@ public class basicEnemyMov : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("here");
+
             playaplay.GetComponent<player>().addFunds(awardPoints);
             Destroy(this.gameObject);
         }

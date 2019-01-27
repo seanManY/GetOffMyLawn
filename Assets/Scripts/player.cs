@@ -69,7 +69,7 @@ public class player : MonoBehaviour
 
     public void SpendFunds(int item)
     {
-        Debug.Log("IM BEING CALLED");
+
         switch (item)
         {
             case 0: funds -= towerCost;

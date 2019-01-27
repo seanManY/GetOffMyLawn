@@ -108,11 +108,11 @@ public class GunScript : MonoBehaviour
         {
             int num = 0;
 
-            player.GetComponent<player>().SpendFunds(item);
+            
 
             if (hit.transform.tag == "DDrop")
             {
-
+                player.GetComponent<player>().SpendFunds(item);
                 if (hit.transform.parent.name == "lane1")
                 {
                     num = 1;
