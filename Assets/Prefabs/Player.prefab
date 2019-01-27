@@ -1543,7 +1543,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
-  GM: {fileID: 0}
   player: {fileID: 7156634979787414130}
   ammo:
   - {fileID: 1249470042}
@@ -1567,10 +1566,10 @@ GameObject:
   - component: {fileID: 2114931944600083095}
   - component: {fileID: 2114931944600083094}
   - component: {fileID: 2114931944600083081}
-  - component: {fileID: 2114931944600083080}
   - component: {fileID: 2114931944600083092}
   - component: {fileID: 2114931944600083093}
   - component: {fileID: 7156634979787414130}
+  - component: {fileID: 4852050704472408940}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1640,20 +1639,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2114931944600083080
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114931944600083083}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2114931944600083092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,6 +1697,19 @@ MonoBehaviour:
   wallCost: 15
   rewardRate: 5
   TextPro: {fileID: 430945369}
+--- !u!135 &4852050704472408940
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114931944600083083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2114931943082949203
 PrefabInstance:
   m_ObjectHideFlags: 0

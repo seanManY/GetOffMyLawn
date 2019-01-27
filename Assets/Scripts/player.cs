@@ -31,7 +31,7 @@ public class player : MonoBehaviour
     void Update()
     {
 
-        if(Time.time>=nextReward)
+        if (Time.time >= nextReward)
         {
             nextReward = Time.time + rewardRate;
             funds += 5;
@@ -39,7 +39,7 @@ public class player : MonoBehaviour
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if(i < life)
+            if (i < life)
             {
                 hearts[i].enabled = true;
             }
