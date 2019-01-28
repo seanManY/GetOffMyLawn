@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
             spawnNum++;
             spawnCount = 0;
         }
-        else if(spawnCount >= spawnRate * 20 && spawnNum == fastEnemyCount + normEnemyCount + slowEnemyCount)
+        else if(spawnCount >= spawnRate * 20 && hasBoss == true)
         {
             GameObject enemy = Instantiate(enemyList[spawnNum], level.transform.GetChild(4).GetChild(4));
             enemy.GetComponent<basicEnemyMov>().setPlayer(play);
