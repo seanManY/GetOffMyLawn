@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
             spawnCount = 0;
         }
 
-        if (deathCount <= 0 && noEnemies == false)
+        if (deathCount <= 0 && noEnemies == false && !endLevel)
         {
             noEnemies = true;
             Continue();
