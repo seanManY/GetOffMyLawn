@@ -73,7 +73,8 @@ public class basicEnemyMov : MonoBehaviour
     {
         if (trig.gameObject.tag == "Tree")
         {
-            Instantiate(treeFX, trig.transform);
+            Vector3 pos = trig.gameObject.transform.position;
+            Instantiate(treeFX, pos, Quaternion.identity);
             Destroy(trig.gameObject);
         }
     }
