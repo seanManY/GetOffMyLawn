@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sean.unity
     guid: c07955d71c694c545b90db48b63d4693
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1.unity
     guid: d13f415cde86cbc498d4568a3ce97af1
   - enabled: 1
